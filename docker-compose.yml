@@ -16,7 +16,7 @@ services:
     volumes:
       - ./src:/var/www
     ports:
-      - "80:8081"
+      - "8081:80"
   # Database
   database:
     image: mysql:8.0.25
@@ -28,7 +28,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
     ports:
-      - "3306:3309"
+      - "3306:3306"
   # Database Management
   pma:
     image: phpmyadmin:5.1
@@ -41,7 +41,7 @@ services:
     depends_on:
       - "database"
     ports:
-      - "8888:8081"
+      - "8888:8888"
   # Caching
   redis:
     image: redis:alpine
